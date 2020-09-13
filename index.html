@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>api call</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+       
+        var city ="London";
+        $(document).ready(function () {
+            $('button').click(function () {
+                $.ajax({
+                    url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" + "&APPID= your api key",
+                    type: "GET",
+                    dataType: 'json',
+                    success: function (data) {
+                    
+                    var result = $('#shwresults');
+                        result.html("weather :" + data.weather[0].main + "   temp" + data.main.temp);
+                    }
+
+                });
+            
+       });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <h1>weather stuff</h1>
+    <div id="shwresults" ></div>
+    <button >cliack me </button>
+
+
+</body>
+
+</html>
